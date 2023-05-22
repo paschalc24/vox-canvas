@@ -35,6 +35,8 @@
   .button-container{
     background-color: transparent;
     border: none;
+    overflow: visible;
+    padding-bottom: 10px;
   }
   
   .spinner-gif {
@@ -43,12 +45,13 @@
     -moz-user-drag: none;
     -o-user-drag: none;
     user-drag: none;
-    -webkit-touch-callout: none;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
     pointer-events: none;
     content: none;
     width: 260%;
     opacity: 0.2;
-    overflow: visible;
   }
   
   .spinner-gif:active {
@@ -119,8 +122,5 @@
   @media (max-width: 767px) {
     .image-border{
       width: 80%
-    }
-    .button-container:active::after {
-      content: none;  /* Hide the save option when the button is clicked on mobile */
     }
   }

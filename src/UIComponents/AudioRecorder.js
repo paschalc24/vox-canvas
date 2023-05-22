@@ -81,7 +81,7 @@ const AudioRecorder = () => {
                },
                }
            ).then (response => {
-               setUserRequest(response.data.text)
+               setUserRequest(`'${response.data.text}'`)
                setIsLoading(true)
                handleImageRequest(response.data.text);
            });
@@ -104,6 +104,11 @@ const AudioRecorder = () => {
      document.removeEventListener('mouseup', handleMouseUp);
    };
  }, [handleMouseUp]);
+
+ function handleTouchStart(event) {
+  event.preventDefault(); // Prevent the default behavior
+  handleMouseDown()
+}
 
  return (
    <div>
@@ -134,7 +139,7 @@ const AudioRecorder = () => {
            startDelay={0}
            cursorColor= {"transparent"}
            loop="false"
-           text={userRequest}
+           text={`${userRequest}`}
            typeSpeed={60}
            eraseSpeed={0}
            />
@@ -142,7 +147,7 @@ const AudioRecorder = () => {
      )}
      <button
        className="button-container"
-       onMouseDown={handleMouseDown}
+       onTouchStart={handleTouchStart}
        disabled={isRecording}
      >
      <div className="record-button">
