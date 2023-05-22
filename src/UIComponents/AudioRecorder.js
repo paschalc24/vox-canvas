@@ -15,7 +15,6 @@ const AudioRecorder = () => {
  const [userRequest, setUserRequest] = useState('');
  const isMobile = window.innerWidth <= 767;
 
-
  const handleMouseDown = () => {
    navigator.mediaDevices
      .getUserMedia({ audio: true })
@@ -34,7 +33,6 @@ const AudioRecorder = () => {
        console.error('Error accessing media devices:', error);
      });
  };
-
 
  const handleImageRequest = (transcription) => {
    try {
@@ -62,7 +60,6 @@ const AudioRecorder = () => {
        setIsLoading(false);
    }
  }
-
 
  const handleMouseUp = useCallback(() => {
    if (isRecording) {
@@ -99,7 +96,6 @@ const AudioRecorder = () => {
    }
  }, [isRecording]);
 
-
  useEffect(() => {
    // Add event listener to handle mouseup on document level
    document.addEventListener('mouseup', handleMouseUp);
@@ -108,7 +104,6 @@ const AudioRecorder = () => {
      document.removeEventListener('mouseup', handleMouseUp);
    };
  }, [handleMouseUp]);
-
 
  return (
    <div>
