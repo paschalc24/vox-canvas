@@ -47,7 +47,8 @@
     pointer-events: none;
     content: none;
     width: 260%;
-    opacity: 0.2
+    opacity: 0.2;
+    overflow: visible;
   }
   
   .spinner-gif:active {
