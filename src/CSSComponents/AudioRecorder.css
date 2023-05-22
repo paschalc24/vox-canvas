@@ -7,13 +7,14 @@
     color: #7EC8E3;
     cursor: pointer;
     width: 40px; /* Adjust the width and height to match your desired size */
-    overflow: hidden;
+    overflow: visible;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 10px 3px #7EC8E3;
     transition: box-shadow 1s ease-in-out, transform 1s ease-in-out;
+    margin-bottom: 30px;
   }
   
   .record-button:hover {
@@ -35,7 +36,7 @@
   .button-container{
     background-color: transparent;
     border: none;
-    overflow: visible;
+    touch-action: none;
   }
   
   .spinner-gif {
@@ -67,6 +68,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      touch-action: none;
   }
   
   .image-border {
@@ -76,6 +78,8 @@
     border: 2px solid #FFFFFF;
     animation: scaleAnimation 2s forwards;
     transform-origin: center;
+    touch-action: none;
+    touch-active: none;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
   

@@ -15,6 +15,7 @@ const AudioRecorder = () => {
  const [userRequest, setUserRequest] = useState('');
  const isMobile = window.innerWidth <= 767;
  document.body.style.webkitTouchCallout='none';
+ document.body.style.webkitTextFillColor='none';
 
  const handleMouseDown = () => {
    navigator.mediaDevices
