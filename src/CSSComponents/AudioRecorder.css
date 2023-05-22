@@ -36,7 +36,6 @@
     background-color: transparent;
     border: none;
     overflow: visible;
-    padding-bottom: 10px;
   }
   
   .spinner-gif {
@@ -45,9 +44,6 @@
     -moz-user-drag: none;
     -o-user-drag: none;
     user-drag: none;
-    -webkit-touch-callout: none !important;
-    -webkit-user-select: none !important;
-    -webkit-touch-callout: none !important;
     pointer-events: none;
     content: none;
     width: 260%;
@@ -122,5 +118,8 @@
   @media (max-width: 767px) {
     .image-border{
       width: 80%
+    }
+    .button-container{
+      margin-bottom: 15px;
     }
   }

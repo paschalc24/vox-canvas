@@ -14,6 +14,7 @@ const AudioRecorder = () => {
  const [imgURL, setImgURL] = useState('');
  const [userRequest, setUserRequest] = useState('');
  const isMobile = window.innerWidth <= 767;
+ document.body.style.webkitTouchCallout='none';
 
  const handleMouseDown = () => {
    navigator.mediaDevices
