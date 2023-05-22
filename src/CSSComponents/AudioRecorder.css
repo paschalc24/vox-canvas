@@ -44,6 +44,8 @@
     -o-user-drag: none;
     user-drag: none;
     -webkit-touch-callout: none;
+    pointer-events: none;
+    content: none;
     width: 260%;
     opacity: 0.2
   }

@@ -62,21 +62,21 @@
   .blob{
     position: fixed;
     top: 15%;
-    left: 10%;
-    width: 350px;
-    height: 350px;
+    left: 7.5%;
+    width: 400px;
+    height: 400px;
     zIndex: -1;
   }
   .react-typewriter-text{
     position: absolute;
     left: 25%;
     top: 27.5%;
-    width: 130px;
+    width: 150px;
   }
   .enter-button{
     position: fixed;
     cursor: pointer;
-    top: 320px;
+    top: 350px;
     left: 50%;
     width: 75px;
     height: 37.5px;
