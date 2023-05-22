@@ -48,7 +48,7 @@ const AudioRecorder = () => {
            requestData,
            {
            headers: {
-               Authorization: 'Bearer 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',
+               Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
                'Content-Type': 'application/json',
            },
            }
@@ -79,7 +79,7 @@ const AudioRecorder = () => {
                formData,
                {
                headers: {
-                   Authorization: 'Bearer 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',
+                   Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
                    'Content-Type': 'multipart/form-data',
                },
                }
