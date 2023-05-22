@@ -45,6 +45,7 @@
     -o-user-drag: none;
     user-drag: none;
     pointer-events: none;
+    touch-action: none;
     content: none;
     width: 260%;
     opacity: 0.2;
