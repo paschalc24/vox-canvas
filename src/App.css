@@ -1,38 +1,84 @@
 .App {
   text-align: center;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.footer-container {
+  width:100%;
+  position: absolute;
+  bottom: 30px;
+  font-family: 'Mulish', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.header-container {
+  border-bottom: 1px solid #FFFFFF;
+  margin-left: 30px;
+  position: absolute;
+  top: 25px;
+  color: #FFFFFF;
+  font-family: 'Mulish', sans-serif;
+  font-size: 40px;
+  text-align: left;
+  padding-bottom: 15px;
+}
+
+.react-typewriter-text{
+  width: 200px;
+  position: absolute;
+  top: 150px;
+  left: 215px;
+  text-align: center !important;
+}
+
+.blob{
+  position: fixed;
+  top: 10%;
+  left: 27.5%;
+  width: 600px;
+  height: 600px;
+  zIndex: -1;
+}
+
+.enter-button {
+  position: fixed;
+  cursor: pointer;
+  top: 450px;
+  left: 50%;
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  font-family: Mulish;
+  font-weight: 50px;
+  color: #FFFFFF;
+  border: none;
+  transition: scale 0.5s ease-in-out;
+}
+
+.enter-button:hover {
+  scale: 1.1;
+}
+
+@media (max-width: 767px) {
+  .blob{
+    position: fixed;
+    top: 15%;
+    left: 10%;
+    width: 300px;
+    height: 300px;
+    zIndex: -1;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .react-typewriter-text{
+    position: absolute;
+    left: 25%;
+    top: 27.5%;
+    width: 130px;
   }
-  to {
-    transform: rotate(360deg);
+  .enter-button{
+    position: fixed;
+    cursor: pointer;
+    top: 320px;
+    left: 50%;
+    width: 75px;
+    height: 37.5px;
   }
 }
