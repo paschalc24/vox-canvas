@@ -117,4 +117,7 @@
     .image-border{
       width: 80%
     }
+    .button-container:active::after {
+      content: none;  /* Hide the save option when the button is clicked on mobile */
+    }
   }
