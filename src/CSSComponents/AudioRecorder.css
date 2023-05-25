@@ -1,4 +1,4 @@
-.record-button {
+.record-button-true {
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -12,25 +12,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 10px 3px #7EC8E3;
+    box-shadow: 0 0 10px 3px red;
     transition: box-shadow 1s ease-in-out, transform 1s ease-in-out;
     margin-bottom: 30px;
   }
-  
-  .record-button:hover {
-    box-shadow: 0 0 20px 3px #7EC8E3;
-    transform: translateY(10%);
-  }
-  
-  .record-button:active {
-    box-shadow: 0 0 20px 3px #7EC8E3;
-    transform: translateY(10%);
-    animation: fadeOutIn 10s ease-out-in infinite;
-  }
-  
-  .record-button.recording {
+
+  .record-button-false {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #7EC8E3;
     cursor: pointer;
-    box-shadow: 0 0 10px 3px red;
+    width: 40px; /* Adjust the width and height to match your desired size */
+    overflow: hidden;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px 4px #7EC8E3;
+    transition: box-shadow 1s ease-in-out, transform 1s ease-in-out;
+    margin-bottom: 30px;
+    transform: translateY(50%);
   }
   
   .button-container{

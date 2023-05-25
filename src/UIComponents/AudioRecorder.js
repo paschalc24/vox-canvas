@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef } from 'react';
 import '../CSSComponents/AudioRecorder.css';
 import axios from 'axios';
 import spinner from '../images/LCPT.gif'
@@ -13,7 +13,6 @@ const AudioRecorder = () => {
  const mediaRecorderRef = useRef(null);
  const chunksRef = useRef([]);
  const isMobile = window.innerWidth <= 767;
-
 
  const handleMouseDown = () => {
   if (!isRecording){
@@ -133,7 +132,7 @@ const AudioRecorder = () => {
        className="button-container"
        onMouseDown={handleMouseDown}
      >
-     <div className="record-button">
+     <div className={`record-button-${isRecording}`}>
        <img className="spinner-gif" alt='' src={spinner}/>
      </div>
      </button>
