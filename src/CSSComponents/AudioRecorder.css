@@ -7,7 +7,7 @@
     color: #7EC8E3;
     cursor: pointer;
     width: 40px; /* Adjust the width and height to match your desired size */
-    overflow: visible;
+    overflow: hidden;
     height: 40px;
     display: flex;
     align-items: center;
@@ -36,7 +36,6 @@
   .button-container{
     background-color: transparent;
     border: none;
-    touch-action: none;
   }
   
   .spinner-gif {
@@ -45,9 +44,6 @@
     -moz-user-drag: none;
     -o-user-drag: none;
     user-drag: none;
-    pointer-events: none;
-    touch-action: none;
-    content: none;
     width: 260%;
     opacity: 0.2;
   }
@@ -68,7 +64,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      touch-action: none;
   }
   
   .image-border {
@@ -78,8 +73,6 @@
     border: 2px solid #FFFFFF;
     animation: scaleAnimation 2s forwards;
     transform-origin: center;
-    touch-action: none;
-    touch-active: none;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
   

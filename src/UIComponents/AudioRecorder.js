@@ -5,36 +5,68 @@ import spinner from '../images/LCPT.gif'
 import TypeWriterEffect from 'react-typewriter-effect';
 import loadingAnimation from '../images/Wedges-3s-200px.svg'
 
-
 const AudioRecorder = () => {
- const mediaRecorderRef = useRef(null);
- const chunksRef = useRef([]);
  const [isRecording, setIsRecording] = useState(false);
  const [isLoading, setIsLoading] = useState(false);
  const [imgURL, setImgURL] = useState('');
  const [userRequest, setUserRequest] = useState('');
+ const mediaRecorderRef = useRef(null);
+ const chunksRef = useRef([]);
  const isMobile = window.innerWidth <= 767;
- document.body.style.webkitTouchCallout='none';
- document.body.style.webkitTextFillColor='none';
+
 
  const handleMouseDown = () => {
-   navigator.mediaDevices
-     .getUserMedia({ audio: true })
-     .then((stream) => {
-       const mediaRecorder = new MediaRecorder(stream);
-       mediaRecorder.ondataavailable = (event) => {
-         if (event.data && event.data.size > 0) {
-           chunksRef.current.push(event.data);
-         }
-       };
-       mediaRecorder.start();
-       mediaRecorderRef.current = mediaRecorder;
-       setIsRecording(true);
-     })
-     .catch((error) => {
-       console.error('Error accessing media devices:', error);
-     });
- };
+  if (!isRecording){
+    navigator.mediaDevices
+      .getUserMedia({ audio: true })
+      .then((stream) => {
+        const mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data && event.data.size > 0) {
+            chunksRef.current.push(event.data);
+          }
+        };
+        mediaRecorder.start();
+        mediaRecorderRef.current = mediaRecorder;
+        setIsRecording(true)
+      })
+      .catch((error) => {
+        console.error('Error accessing media devices:', error);
+      });
+  }
+  else {
+    if (mediaRecorderRef.current) {
+      mediaRecorderRef.current.onstop = () => {
+        const blob = new Blob(chunksRef.current, { type: 'audio/mp3' });
+        const file = new File([blob], 'recording.mp4', { type: 'audio/mp3' });
+      try {
+          const formData = new FormData();
+          formData.append('file', file);
+          formData.append('model', 'whisper-1');      
+          axios.post(
+              'https://api.openai.com/v1/audio/translations',
+              formData,
+              {
+              headers: {
+                  Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+                  'Content-Type': 'multipart/form-data',
+              },
+              }
+          ).then (response => {
+              setUserRequest(response.data.text)
+              setIsLoading(true)
+              setIsRecording(false)
+              handleImageRequest(response.data.text);
+          });
+      } catch (error) {
+          console.log('Error Transcribing Audio:', error);
+      }
+      };
+      mediaRecorderRef.current.stop();
+    }
+    chunksRef.current = [];
+  }
+};
 
  const handleImageRequest = (transcription) => {
    try {
@@ -53,7 +85,6 @@ const AudioRecorder = () => {
            },
            }
        ).then (response => {
-           console.log(response.data.data[0].url)
            setImgURL(response.data.data[0].url)
            setIsLoading(false);
        });
@@ -62,55 +93,6 @@ const AudioRecorder = () => {
        setIsLoading(false);
    }
  }
-
- const handleMouseUp = useCallback(() => {
-   if (isRecording) {
-     if (mediaRecorderRef.current) {
-       mediaRecorderRef.current.onstop = () => {
-         const blob = new Blob(chunksRef.current, { type: 'audio/mp3' });
-         const file = new File([blob], 'recording.mp4', { type: 'audio/mp3' });
-       try {
-           const formData = new FormData();
-           formData.append('file', file);
-           formData.append('model', 'whisper-1');      
-           axios.post(
-               'https://api.openai.com/v1/audio/translations',
-               formData,
-               {
-               headers: {
-                   Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
-                   'Content-Type': 'multipart/form-data',
-               },
-               }
-           ).then (response => {
-               setUserRequest(`'${response.data.text}'`)
-               setIsLoading(true)
-               handleImageRequest(response.data.text);
-           });
-       } catch (error) {
-           console.log('Error Transcribing Audio:', error);
-       }
-       };
-       mediaRecorderRef.current.stop();
-     }
-     chunksRef.current = [];
-     setTimeout(setIsRecording(false), 3000);
-   }
- }, [isRecording]);
-
- useEffect(() => {
-   // Add event listener to handle mouseup on document level
-   document.addEventListener('mouseup', handleMouseUp);
-   // Cleanup the event listener on component unmount
-   return () => {
-     document.removeEventListener('mouseup', handleMouseUp);
-   };
- }, [handleMouseUp]);
-
- function handleTouchStart(event) {
-  event.preventDefault(); // Prevent the default behavior
-  handleMouseDown()
-}
 
  return (
    <div>
@@ -141,7 +123,7 @@ const AudioRecorder = () => {
            startDelay={0}
            cursorColor= {"transparent"}
            loop="false"
-           text={`${userRequest}`}
+           text={userRequest}
            typeSpeed={60}
            eraseSpeed={0}
            />
@@ -149,8 +131,7 @@ const AudioRecorder = () => {
      )}
      <button
        className="button-container"
-       onTouchStart={handleTouchStart}
-       disabled={isRecording}
+       onMouseDown={handleMouseDown}
      >
      <div className="record-button">
        <img className="spinner-gif" alt='' src={spinner}/>
@@ -159,6 +140,4 @@ const AudioRecorder = () => {
    </div>
  );
 };
-
-
 export default AudioRecorder;
