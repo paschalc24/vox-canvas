@@ -42,7 +42,7 @@
 .enter-button {
   position: fixed;
   cursor: pointer;
-  top: 450px;
+  top: 475px;
   left: 50%;
   width: 100px;
   height: 50px;
@@ -76,7 +76,7 @@
   .enter-button{
     position: fixed;
     cursor: pointer;
-    top: 350px;
+    top: 370px;
     left: 50%;
     width: 75px;
     height: 37.5px;

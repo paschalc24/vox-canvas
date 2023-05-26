@@ -38,7 +38,7 @@ function App() {
         startDelay={0}
         cursorColor= {"transparent"}
         loop="false"
-        text={"Hello, welcome to Vox Canvas! \n Press and hold the record button to create AI generated art!"}
+        text={"Hello, welcome to Vox Canvas! \n Press the button to start and stop recording to create AI generated art!"}
         typeSpeed={60}
         eraseSpeed={0}
         />
