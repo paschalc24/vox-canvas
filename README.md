@@ -1,6 +1,10 @@
 # VoxCanvas App
 
-This is a React app that allows users to transcribe audio recordings using the OpenAI Whisper API and generate AI art based on the transcription using the Dale2Image Generation API.
+This is a React app that allows users to transcribe audio recordings using the OpenAI Whisper API and generate AI art based on the transcription using the Dale2Image Generation API. The recording functionality is tuned for desktop browsers, not mobile browsers. Updates will be posted here. Try it out! https://vox-canvas.vercel.app/ 🎨
+
+![Landing Page:](./public/VoxSS1.png)
+
+![Main Page:](./public/VoxSS2.png)
 
 ## Prerequisites
 
