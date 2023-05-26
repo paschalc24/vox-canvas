@@ -82,5 +82,6 @@
   @media (max-width: 767px) {
     .image-border {
       width: 80%;
+      margin-bottom:-20px;
     }
   }

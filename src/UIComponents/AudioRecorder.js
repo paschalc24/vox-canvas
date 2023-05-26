@@ -97,7 +97,7 @@ const AudioRecorder = () => {
  return (
    <div>
      {isLoading ? (
-       <div className="image-container" style={{height: isMobile ? '60vh': '75vh'}}>
+       <div className="image-container" style={{height: isMobile ? '65vh': '75vh'}}>
            <div style={{
              width: '60px',
              height: '60px',
@@ -108,7 +108,7 @@ const AudioRecorder = () => {
            }}/>
        </div>
        ) : (
-       <div className="image-container" style={{height: isMobile ? '60vh': '75vh'}}>
+       <div className="image-container" style={{height: isMobile ? '65vh': '75vh'}}>
          <img className="image-border" alt="" src={imgURL}/>
          <TypeWriterEffect
            textStyle={{ 
