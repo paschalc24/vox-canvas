@@ -1,31 +1,54 @@
-# Create React App
+# VoxCanvas App
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+This is a React app that allows users to transcribe audio recordings using the OpenAI Whisper API and generate AI art based on the transcription using the Dale2Image Generation API.
 
-## Deploy Your Own
+## Prerequisites
 
-Deploy your own Create React App project with Vercel.
+Before running the app, make sure you have the following:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+- Node.js (v14 or later)
+- npm (Node Package Manager)
+- Axios package
+- React Typewriter Package
 
-_Live Example: https://create-react-template.vercel.app/_
+## Getting Started
+Clone the repository:
+```bash
+git clone https://github.com/paschalc24/vox-canvas/
+```
+## Install dependencies:
+```bash
+npm install
+```
+## Set up API access:
+Sign up for an OpenAI account if you don't have one.
+Obtain an API key and add your API keys to the .env file in the project root:
 
-## Available Scripts
+Copy code
+```
+REACT_APP_API_KEY=your-api-key
+```
 
-In the project directory, you can run:
+Start the development server:
+```bash
+npm start
+```
+Open your browser and visit http://localhost:3000 to view the app.
 
-### `npm start`
+## Usage
+- Click the "Recording" button to begin audio recording.
+- Speak into your microphone to record your audio.
+- Click the "Recording" button to stop the recording.
+- The app will transcribe the audio using the Whisper API and generate AI art based on the transcription using the Dale2Image Generation API. The AI-generated art will be displayed on the screen along with the transcription text.
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
+- React
+- Axios (for making API requests)
+- OpenAI Whisper API
+- OpenAI Dale2Image Generation API
 
-The page will reload when you make changes. You may also see any lint errors in the console.
+## Contributing
+Contributions are welcome! If you have any suggestions or improvements, feel free to submit a pull request.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.
-
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+## License
+This project is licensed under the MIT License.
