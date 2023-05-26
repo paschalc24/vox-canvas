@@ -57,6 +57,7 @@ const AudioRecorder = () => {
               setIsRecording(false)
               handleImageRequest(response.data.text);
           });
+          setIsRecording(false)
       } catch (error) {
           console.log('Error Transcribing Audio:', error);
       }
@@ -83,7 +84,7 @@ const AudioRecorder = () => {
                'Content-Type': 'application/json',
            },
            }
-       ).then (response => {
+       ).then(response => {
            setImgURL(response.data.data[0].url)
            setIsLoading(false);
        });
@@ -96,7 +97,7 @@ const AudioRecorder = () => {
  return (
    <div>
      {isLoading ? (
-       <div className="image-container">
+       <div className="image-container" style={{height: isMobile ? '60vh': '75vh'}}>
            <div style={{
              width: '60px',
              height: '60px',
@@ -107,7 +108,7 @@ const AudioRecorder = () => {
            }}/>
        </div>
        ) : (
-       <div className="image-container">
+       <div className="image-container" style={{height: isMobile ? '60vh': '75vh'}}>
          <img className="image-border" alt="" src={imgURL}/>
          <TypeWriterEffect
            textStyle={{ 
@@ -133,7 +134,7 @@ const AudioRecorder = () => {
        onMouseDown={handleMouseDown}
      >
      <div className={`record-button-${isRecording}`}>
-       <img className="spinner-gif" alt='' src={spinner}/>
+       <img className="spinner-gif" style={{opacity: isRecording? 0.4: 0.2}} alt='' src={spinner}/>
      </div>
      </button>
    </div>
